@@ -7,7 +7,7 @@ import {
 
 export default [
   layout("./layouts/authLayout.tsx", [
-    layout("./layouts/initLayout.tsx", [index("./routes/home.tsx")]),
+    layout("./layouts/initLayout.tsx", [index("./routes/dashboard.tsx")]),
   ]),
   route("/api/auth/*", "./routes/api/auth/$.ts"),
   route("/login", "./routes/login.tsx"),
