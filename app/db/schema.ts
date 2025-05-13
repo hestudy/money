@@ -1,4 +1,5 @@
-import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
+import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
+import { nanoid } from "nanoid";
 
 export const user = sqliteTable("user", {
   id: text("id").primaryKey(),
@@ -52,4 +53,46 @@ export const verification = sqliteTable("verification", {
   expiresAt: integer("expires_at", { mode: "timestamp" }).notNull(),
   createdAt: integer("created_at", { mode: "timestamp" }),
   updatedAt: integer("updated_at", { mode: "timestamp" }),
+});
+
+export const initRecord = sqliteTable("init_record", {
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => nanoid()),
+  name: text("name").notNull(),
+  createdAt: integer("created_at", { mode: "timestamp" })
+    .notNull()
+    .$defaultFn(() => new Date()),
+  updatedAt: integer("updated_at", { mode: "timestamp" })
+    .notNull()
+    .$defaultFn(() => new Date()),
+});
+
+export const stock = sqliteTable("stock", {
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => nanoid()),
+  ts_code: text("ts_code").notNull(),
+  symbol: text("symbol").notNull(),
+  name: text("name").notNull(),
+  area: text("area"),
+  industry: text("industry"),
+  fullname: text("fullname"),
+  enname: text("enname"),
+  cnspell: text("cnspell"),
+  market: text("market"),
+  exchange: text("exchange"),
+  curr_type: text("curr_type"),
+  list_status: text("list_status"),
+  list_date: text("list_date"),
+  delist_date: text("delist_date"),
+  is_hs: text("is_hs"),
+  act_name: text("act_name"),
+  act_ent_type: text("act_ent_type"),
+  createdAt: integer("created_at", { mode: "timestamp" })
+    .notNull()
+    .$defaultFn(() => new Date()),
+  updatedAt: integer("updated_at", { mode: "timestamp" })
+    .notNull()
+    .$defaultFn(() => new Date()),
 });
