@@ -10,6 +10,7 @@ export default [
     layout("./layouts/initLayout.tsx", [index("./routes/dashboard.tsx")]),
   ]),
   route("/api/auth/*", "./routes/api/auth/$.ts"),
+  route("/api/logout", "./routes/api/logout.ts"),
   route("/login", "./routes/login.tsx"),
   route("/register", "./routes/register.tsx"),
 ] satisfies RouteConfig;

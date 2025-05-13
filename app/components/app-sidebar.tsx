@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   IconCamera,
   IconChartBar,
@@ -16,6 +15,7 @@ import {
   IconSettings,
   IconUsers,
 } from "@tabler/icons-react";
+import * as React from "react";
 
 import { NavDocuments } from "~/components/nav-documents";
 import { NavMain } from "~/components/nav-main";
@@ -32,11 +32,6 @@ import {
 } from "~/components/ui/sidebar";
 
 const data = {
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
   navMain: [
     {
       title: "Dashboard",
@@ -172,7 +167,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser />
       </SidebarFooter>
     </Sidebar>
   );
