@@ -58,7 +58,7 @@ export function RegisterForm({
               <form.AppField
                 name="name"
                 validators={{
-                  onChange: z.string().min(1),
+                  onBlur: z.string().min(1),
                 }}
                 children={(field) => {
                   return (
@@ -69,7 +69,7 @@ export function RegisterForm({
               <form.AppField
                 name="email"
                 validators={{
-                  onChange: z.string().email(),
+                  onBlur: z.string().email(),
                 }}
                 children={(field) => {
                   return (
@@ -83,7 +83,7 @@ export function RegisterForm({
               <form.AppField
                 name="password"
                 validators={{
-                  onChange: z.string().min(8),
+                  onBlur: z.string().min(8),
                 }}
                 children={(field) => {
                   return (
