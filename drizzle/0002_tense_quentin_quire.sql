@@ -1,0 +1,1 @@
+ALTER TABLE `stock` RENAME TO `all_stock`;

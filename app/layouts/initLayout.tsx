@@ -1,7 +1,7 @@
 import { eq } from "drizzle-orm";
 import { chunk } from "es-toolkit";
 import { Outlet } from "react-router";
-import { initRecord, stock } from "~/db/schema";
+import { initRecord, allStock } from "~/db/schema";
 import db from "~/lib/db";
 
 const getStocks = async () => {
@@ -42,7 +42,7 @@ export async function loader() {
   if (count === 0) {
     const res = await getStocks();
     if (res.code === 0) {
-      const result: (typeof stock.$inferInsert)[] = [];
+      const result: (typeof allStock.$inferInsert)[] = [];
       res.data.items.forEach((item: any[]) => {
         const data: any = {};
         item.forEach((d, index) => {
@@ -52,7 +52,7 @@ export async function loader() {
       });
       const chunkList = chunk(result, 100);
       for (const item of chunkList) {
-        await db.insert(stock).values(item);
+        await db.insert(allStock).values(item);
       }
       await db.insert(initRecord).values({
         name: "stocks",

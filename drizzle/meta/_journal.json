@@ -15,6 +15,20 @@
       "when": 1747105978682,
       "tag": "0001_yielding_sumo",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1747116048140,
+      "tag": "0002_tense_quentin_quire",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1747116636352,
+      "tag": "0003_jazzy_shinobi_shaw",
+      "breakpoints": true
     }
   ]
 }
